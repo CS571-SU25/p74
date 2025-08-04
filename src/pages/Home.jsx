@@ -22,7 +22,7 @@ function Home() {
         <ul>
           <li>
             <a
-              href="https://instagram.com/"
+              href="https://www.instagram.com/aimyon_staff/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -31,7 +31,7 @@ function Home() {
           </li>
           <li>
             <a
-              href="https://youtube.com/"
+              href="https://www.youtube.com/channel/UCQVhrypJhw1HxuRV4gX6hoQ/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -40,7 +40,7 @@ function Home() {
           </li>
           <li>
             <a
-              href="https://officialsite.com/"
+              href="https://www.aimyong.net/"
               target="_blank"
               rel="noopener noreferrer"
             >

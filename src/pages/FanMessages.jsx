@@ -4,11 +4,31 @@ import { useNavigate } from "react-router-dom";
 import { LoginStatusContext } from "../contexts/LoginStatusContext";
 import Button from "react-bootstrap/Button";
 
-function FanMessages() {
+// TextAppManager.jsx 의 useStorage 훅을 그대로 복사해 옵니다
+function useStorage(key, initialVal) {
+  const [value, setValue] = useState(() => {
+    try {
+      const json = localStorage.getItem(key);
+      return json != null ? JSON.parse(json) : initialVal;
+    } catch {
+      return initialVal;
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, [key, value]);
+
+  return [value, setValue];
+}
+
+export default function FanMessages() {
   const { t } = useTranslation();
   const [loginStatus, setLoginStatus] = useContext(LoginStatusContext);
   const navigate = useNavigate();
-  const [messages, setMessages] = useState([
+
+  // 기존 useState 대신 useStorage 로 교체합니다
+  const [messages, setMessages] = useStorage("fan-messages", [
     {
       name: "AimmuFan",
       text: "Can't wait for AIMYONG's concert in Korea!",
@@ -20,7 +40,7 @@ function FanMessages() {
   ]);
   const [text, setText] = useState("");
 
-  // 로그인 상태 확인
+  // 로그인 상태 확인 (기존 로직 유지)
   useEffect(() => {
     const savedUser = localStorage.getItem("currentUser");
     if (savedUser) {
@@ -32,6 +52,8 @@ function FanMessages() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!text) return;
+
+    // setMessages 를 통해 localStorage 에도 자동 저장됩니다
     setMessages([{ name: loginStatus.username, text }, ...messages]);
     setText("");
   };
@@ -42,7 +64,6 @@ function FanMessages() {
     navigate("/login");
   };
 
-  // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
   if (!loginStatus) {
     return (
       <div className="page-container">
@@ -70,7 +91,6 @@ function FanMessages() {
   return (
     <div className="page-container">
       <h1 className="page-title">{t("fanMessages.title")}</h1>
-
       <div className="page-section">
         <div
           style={{
@@ -125,7 +145,7 @@ function FanMessages() {
         </form>
 
         <div>
-          <h3 style={{ marginBottom: "1rem" }}>팬 메시지</h3>
+          <h3 style={{ marginBottom: "1rem" }}>{t("fanMessages.title")}</h3>
           <ul style={{ listStyle: "none", padding: 0 }}>
             {messages.map((msg, idx) => (
               <li
@@ -150,5 +170,3 @@ function FanMessages() {
     </div>
   );
 }
-
-export default FanMessages;

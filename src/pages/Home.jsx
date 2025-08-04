@@ -4,18 +4,20 @@ import Countdown from "../components/Countdown";
 function Home() {
   const { t } = useTranslation();
   return (
-    <div>
-      <h1>{t("home.title")}</h1>
-      <Countdown />
-      <section>
+    <div className="page-container">
+      <h1 className="page-title">{t("home.title")}</h1>
+      <div className="page-section">
+        <Countdown />
+      </div>
+      <div className="page-section">
         <h2>{t("home.summary")}</h2>
         <ul>
-          <li>{t("home.date", "날짜: 2024년 9월 21일")}</li>
-          <li>{t("home.place", "장소: 서울 올림픽홀")}</li>
-          <li>{t("home.time", "시간: 오후 6시")}</li>
+          <li>{t("home.date")}</li>
+          <li>{t("home.place")}</li>
+          <li>{t("home.time")}</li>
         </ul>
-      </section>
-      <section>
+      </div>
+      <div className="page-section">
         <h2>{t("home.sns")}</h2>
         <ul>
           <li>
@@ -42,11 +44,11 @@ function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {t("home.official", "공식사이트")}
+              {t("home.official")}
             </a>
           </li>
         </ul>
-      </section>
+      </div>
     </div>
   );
 }

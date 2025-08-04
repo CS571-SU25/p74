@@ -6,7 +6,9 @@ function Footer() {
         borderTop: "1px solid #eee",
         marginTop: "2em",
         textAlign: "center",
-        color: "#888",
+        backgroundColor: "var(--bg-primary)",
+        color: "var(--text-primary)",
+        borderTop: "1px solid var(--border-color)",
       }}
     >
       &copy; 2025 AIMYONG KOREA LIVE. All rights reserved.

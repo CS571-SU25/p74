@@ -3,13 +3,13 @@ import { useTranslation } from "react-i18next";
 function SNS() {
   const { t } = useTranslation();
   return (
-    <div>
-      <h1>{t("sns.title")}</h1>
-      <div className="sns">
+    <div className="page-container">
+      <h1 className="page-title">{t("sns.title")}</h1>
+      <div className="page-section">
         <ul>
           <li>
             <a
-              href="https://instagram.com/"
+              href="https://www.instagram.com/aimyon_staff/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -18,7 +18,7 @@ function SNS() {
           </li>
           <li>
             <a
-              href="https://youtube.com/"
+              href="https://www.youtube.com/channel/UCQVhrypJhw1HxuRV4gX6hoQ"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -27,15 +27,15 @@ function SNS() {
           </li>
           <li>
             <a
-              href="https://officialsite.com/"
+              href="https://www.aimyong.net/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              {t("home.official", "공식사이트")}
+              {t("home.official")}
             </a>
           </li>
         </ul>
-      </div> 
+      </div>
     </div>
   );
 }

@@ -1,0 +1,64 @@
+/* Desktop Navigation */
+.desktop-nav {
+  display: flex;
+  gap: 1.5em;
+  align-items: center;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: none;
+}
+
+/* Hamburger Menu Button */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 0.5em;
+  color: var(--text-primary);
+}
+
+/* Mobile Navigation Menu */
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--header-bg);
+  border-top: 1px solid var(--border-color);
+  box-shadow: var(--header-shadow);
+  z-index: 1000;
+}
+
+.mobile-menu-link {
+  display: block;
+  text-decoration: none;
+  color: var(--text-primary);
+  padding: 0.75em 20px;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.3s;
+}
+
+.mobile-menu-link:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none;
+  }
+}

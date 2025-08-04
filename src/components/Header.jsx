@@ -5,6 +5,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
 import "./Header.css";
+import logo from "../assets/Main_logo.png";
 
 function Header() {
   const [loginStatus, setLoginStatus] = useContext(LoginStatusContext);
@@ -63,7 +64,7 @@ function Header() {
             }}
           >
             <img
-              src="Main_logo.png"
+              src={logo}
               alt="AIMYONG KOREA LIVE"
               style={{ width: "100px", height: "auto" }}
             />

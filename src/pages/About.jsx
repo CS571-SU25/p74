@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import profile from "../assets/profile.png";
 
 function About() {
   const { t } = useTranslation();
@@ -10,7 +11,7 @@ function About() {
         <div style={{ textAlign: "center", marginBottom: "2rem" }}>
           <div style={{ width: 200, height: 200, margin: "0 auto 1em" }}>
             <img
-              src="profile.png"
+              src={profile}
               alt="Aimyong"
               style={{
                 width: "100%",
